@@ -1,8 +1,11 @@
 import BrtNode as bn
 import Brt as brt
+import random
 
 root = bn.BrtNode(7)
-btree = brt.Brt(root)
+btree = brt.Brt()
+
+btree.insert(root)
 
 n1 = bn.BrtNode(5)
 btree.insert(n1)
@@ -31,17 +34,8 @@ btree.insert(n9)
 
 btree.inorder_tree_walk(root)
 
-print("maria friddu")
-print(btree.maximum(root).key)
+sottoalbero = brt.Brt()
+for i in range (5):
+    sottoalbero.insert(bn.BrtNode(random.randint(0, 20)))
 
-if btree.search(root, 43) is not None:
-    print("sono così felice che potrei ruscellare fluidi gastrici")
-else:
-    print("il nonno adesso caga ghiaccio e per questo ora è muto ma almeno così non racconta più le storie")
-
-print("il numero magico è...")
-print(btree.successor(n5).key)
-print("manuela è stupida qundi parla da sola ps io e marco siamo ineteligentissimi e manunononnoonononononmachicazzoyammiyammi")
-
-
-
+btree.delete_node(n7)

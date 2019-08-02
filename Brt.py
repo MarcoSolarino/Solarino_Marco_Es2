@@ -1,7 +1,13 @@
 class Brt:
 
-    def __init__(self, root):
+    def __init__(self):
+        self.root = None
+
+    def setRoot(self, root):
         self.root = root
+
+    def getRoot(self):
+        return self.root
 
     def inorder_tree_walk(self, x):
         if x is not None:
@@ -47,7 +53,7 @@ class Brt:
                 x = x.right
         z.father = y
         if y is None:
-            self.root = z
+            self.setRoot(z)
         elif z.key < y.key:
             y.left = z
         else:
@@ -64,7 +70,7 @@ class Brt:
             v.father = u.father
 
     def delete_node(self, z):
-        if z.left in None:
+        if z.left is None:
             self.trapianto(z, z.right)
         elif z.right is None:
             self.trapianto(z, z.left)
