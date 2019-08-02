@@ -62,3 +62,18 @@ class Brt:
             u.father.right = v
         if v is not None:
             v.father = u.father
+
+    def delete_node(self, z):
+        if z.left in None:
+            self.trapianto(z, z.right)
+        elif z.right is None:
+            self.trapianto(z, z.left)
+        else:
+            y = self.minimum(z.right)
+            if y.father is not z:
+                self.trapianto(y, y.right)
+                y.right = z.right
+                y.right.father = y
+            self.trapianto(z, y)
+            y.left = z.left
+            y.left.father = y
