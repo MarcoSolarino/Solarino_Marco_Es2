@@ -52,3 +52,13 @@ class Brt:
             y.left = z
         else:
             y.right = z
+
+    def trapianto(self, u, v):
+        if u.father is None:
+            self.root = v
+        elif u is u.father.left:
+            u.father.left = v
+        else:
+            u.father.right = v
+        if v is not None:
+            v.father = u.father
