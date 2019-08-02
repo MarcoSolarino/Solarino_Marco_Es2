@@ -1,9 +1,13 @@
 class BrtNode:
     def __init__(self, key):
-        self.key = key
         self.left = None
         self.right = None
         self.father = None
+        if key is not None:
+            self.key = key
+        else:
+            self.key = None
+
 
     def setRight(self, right):
         self.right = right

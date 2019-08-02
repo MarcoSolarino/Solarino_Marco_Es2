@@ -1,41 +1,34 @@
 import BrtNode as bn
 import Brt as brt
+import RBnode
+import RbTree
 import random
+from timeit import default_timer as timer
 
-root = bn.BrtNode(7)
+v1 = []
+
+for i in range(11):
+    v1.append(random.randint(0, 100))
+
 btree = brt.Brt()
+rbtree = RbTree.RbTree()
 
-btree.insert(root)
+bstart = timer()
+for x in v1:
+    btree.insert(bn.BrtNode(x))
+bend = timer()
+btime = bend - bstart
 
-n1 = bn.BrtNode(5)
-btree.insert(n1)
+rbstart = timer()
+for x in v1:
+    rbtree.insert(RBnode.RBnode(x))
+rbend = timer()
+rbtime = rbend - rbstart
 
-n2 = bn.BrtNode(6)
-btree.insert(n2)
+print("u tiempu ri chiddu binariu è: ")
+print(btime)
 
-n3 = bn.BrtNode(2)
-btree.insert(n3)
+print("l'autru tiempu (chiddu russu e nniuru) eni: ")
+print(rbtime)
 
-n4 = bn.BrtNode(9)
-btree.insert(n4)
 
-n5 = bn.BrtNode(3)
-btree.insert(n5)
-
-n6 = bn.BrtNode(8)
-n7 = bn.BrtNode(88)
-n8 = bn.BrtNode(76)
-n9 = bn.BrtNode(4)
-
-btree.insert(n6)
-btree.insert(n7)
-btree.insert(n8)
-btree.insert(n9)
-
-btree.inorder_tree_walk(root)
-
-sottoalbero = brt.Brt()
-for i in range (5):
-    sottoalbero.insert(bn.BrtNode(random.randint(0, 20)))
-
-btree.delete_node(n7)
