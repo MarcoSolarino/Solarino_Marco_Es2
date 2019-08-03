@@ -76,7 +76,6 @@ class RbTree(Brt.Brt):
                     z.father.father.red = True
                     self.right_rotate(z.father.father)
             else:
-                if z.father is z.father.father.right:
                     y = z.father.father.left
                     if y.red is True:
                         z.father.red = False

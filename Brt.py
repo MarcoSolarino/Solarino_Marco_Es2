@@ -53,7 +53,7 @@ class Brt:
                 x = x.right
         z.father = y
         if y is None:
-            self.setRoot(z)
+            self.root = z
         elif z.key < y.key:
             y.left = z
         else:
