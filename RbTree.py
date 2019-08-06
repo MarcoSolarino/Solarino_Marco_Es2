@@ -76,19 +76,20 @@ class RbTree(Brt.Brt):
                     z.father.father.red = True
                     self.right_rotate(z.father.father)
             else:
-                    y = z.father.father.left
-                    if y.red is True:
-                        z.father.red = False
-                        y.red = False
-                        z.father.father.red = True
-                        z = z.father.father
-                    else:
-                        if z is z.father.left:
-                            z = z.father
-                            self.right_rotate(z)
-                        z.father.red = False
-                        z.father.father.red = True
-                        self.left_rotate(z.father.father)
+                    if z.father is z.father.father.right:
+                        y = z.father.father.left
+                        if y.red is True:
+                            z.father.red = False
+                            y.red = False
+                            z.father.father.red = True
+                            z = z.father.father
+                        else:
+                            if z is z.father.left:
+                                z = z.father
+                                self.right_rotate(z)
+                            z.father.red = False
+                            z.father.father.red = True
+                            self.left_rotate(z.father.father)
         self.root.red = False
 
     pass
